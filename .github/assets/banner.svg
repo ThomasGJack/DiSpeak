@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" font-family="'Segoe UI', Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1426"/>
+      <stop offset="0.55" stop-color="#0b0f1c"/>
+      <stop offset="1" stop-color="#151226"/>
+    </linearGradient>
+    <radialGradient id="glowC" cx="0.15" cy="0.2" r="0.55">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowV" cx="0.85" cy="0.85" r="0.6">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="title" x1="0" x2="1">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" x2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <clipPath id="win"><rect x="700" y="52" width="520" height="296" rx="16"/></clipPath>
+  </defs>
+
+  <rect width="1280" height="400" fill="url(#bg)"/>
+  <rect width="1280" height="400" fill="url(#glowC)"/>
+  <rect width="1280" height="400" fill="url(#glowV)"/>
+
+  <!-- Logo bubble -->
+  <g transform="translate(82 70) scale(0.8)">
+    <path d="M36 0h40a36 36 0 0 1 0 72H52l-22 18 4-18A36 36 0 0 1 36 0z" fill="url(#title)"/>
+    <circle cx="40" cy="36" r="5" fill="#0b0f1c"/>
+    <circle cx="56" cy="36" r="5" fill="#0b0f1c"/>
+    <circle cx="72" cy="36" r="5" fill="#0b0f1c"/>
+  </g>
+
+  <text x="80" y="238" font-size="84" font-weight="800" fill="url(#title)" letter-spacing="-1">DiSpeak</text>
+  <text x="82" y="280" font-size="24" fill="#cbd5e1">Chat texte &amp; vocal temps réel, auto-hébergeable</text>
+
+  <!-- Tech chips -->
+  <g font-size="15" font-weight="600">
+    <g transform="translate(82 306)"><rect width="74" height="30" rx="15" fill="#1f2937" stroke="#f97316" stroke-opacity=".6"/><text x="37" y="20" text-anchor="middle" fill="#fdba74">Rust</text></g>
+    <g transform="translate(166 306)"><rect width="84" height="30" rx="15" fill="#1f2937" stroke="#22d3ee" stroke-opacity=".6"/><text x="42" y="20" text-anchor="middle" fill="#67e8f9">React</text></g>
+    <g transform="translate(260 306)"><rect width="78" height="30" rx="15" fill="#1f2937" stroke="#facc15" stroke-opacity=".6"/><text x="39" y="20" text-anchor="middle" fill="#fde047">Tauri</text></g>
+    <g transform="translate(348 306)"><rect width="96" height="30" rx="15" fill="#1f2937" stroke="#a78bfa" stroke-opacity=".6"/><text x="48" y="20" text-anchor="middle" fill="#c4b5fd">WebRTC</text></g>
+    <g transform="translate(454 306)"><rect width="84" height="30" rx="15" fill="#1f2937" stroke="#94a3b8" stroke-opacity=".6"/><text x="42" y="20" text-anchor="middle" fill="#e2e8f0">SQLite</text></g>
+  </g>
+
+  <!-- Mini app window -->
+  <g>
+    <rect x="700" y="52" width="520" height="296" rx="16" fill="#111827" stroke="#334155"/>
+    <g clip-path="url(#win)">
+      <!-- server rail -->
+      <rect x="700" y="52" width="64" height="296" fill="#0b1220"/>
+      <circle cx="732" cy="90" r="20" fill="url(#btn)"/>
+      <text x="732" y="96" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">SG</text>
+      <circle cx="732" cy="140" r="20" fill="#1f2937"/><text x="732" y="146" text-anchor="middle" font-size="15" font-weight="700" fill="#67e8f9">GF</text>
+      <circle cx="732" cy="190" r="20" fill="#1f2937"/><text x="732" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#fde047">DC</text>
+      <circle cx="732" cy="240" r="20" fill="#1f2937" stroke="#22c55e" stroke-dasharray="4 4"/><text x="732" y="247" text-anchor="middle" font-size="20" fill="#22c55e">+</text>
+      <!-- channels -->
+      <rect x="764" y="52" width="150" height="296" fill="#0f172a"/>
+      <text x="780" y="84" font-size="15" font-weight="700" fill="#f1f5f9">SimpleGames</text>
+      <text x="780" y="114" font-size="11" font-weight="700" fill="#64748b" letter-spacing="1">SALONS TEXTUELS</text>
+      <rect x="772" y="124" width="134" height="26" rx="6" fill="#1e293b"/>
+      <text x="782" y="142" font-size="14" fill="#e2e8f0"># général</text>
+      <text x="782" y="170" font-size="14" fill="#94a3b8"># annonces</text>
+      <text x="782" y="196" font-size="14" fill="#94a3b8"># memes</text>
+      <text x="780" y="228" font-size="11" font-weight="700" fill="#64748b" letter-spacing="1">SALONS VOCAUX</text>
+      <text x="782" y="254" font-size="14" fill="#e2e8f0">🔊 Détente</text>
+      <circle cx="796" cy="276" r="9" fill="#22d3ee"/><text x="812" y="281" font-size="13" fill="#cbd5e1">Glitch</text>
+      <circle cx="796" cy="300" r="9" fill="#a78bfa"/><text x="812" y="305" font-size="13" fill="#cbd5e1">Nova</text>
+      <!-- speaking ring -->
+      <circle cx="796" cy="276" r="11" fill="none" stroke="#22c55e" stroke-width="2">
+        <animate attributeName="stroke-opacity" values="1;0.2;1" dur="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <!-- chat -->
+      <text x="934" y="84" font-size="15" font-weight="700" fill="#f1f5f9"># général</text>
+      <line x1="914" y1="100" x2="1220" y2="100" stroke="#1e293b"/>
+      <circle cx="950" cy="130" r="14" fill="#22d3ee"/>
+      <text x="974" y="126" font-size="13" font-weight="700" fill="#67e8f9">Glitch</text>
+      <text x="974" y="145" font-size="13" fill="#cbd5e1">Quelqu'un en vocal ce soir ? 🎮</text>
+      <circle cx="950" cy="186" r="14" fill="#a78bfa"/>
+      <text x="974" y="182" font-size="13" font-weight="700" fill="#c4b5fd">Nova</text>
+      <text x="974" y="201" font-size="13" fill="#cbd5e1">Go ! Je lance le serveur 🚀</text>
+      <circle cx="950" cy="242" r="14" fill="#f97316"/>
+      <text x="974" y="238" font-size="13" font-weight="700" fill="#fdba74">Pingu</text>
+      <g transform="translate(974 248)">
+        <rect x="0" y="0" width="4" height="10" rx="2" fill="#fdba74"><animate attributeName="height" values="4;14;4" dur="0.9s" repeatCount="indefinite"/></rect>
+        <rect x="8" y="0" width="4" height="10" rx="2" fill="#fdba74"><animate attributeName="height" values="12;4;12" dur="0.9s" repeatCount="indefinite"/></rect>
+        <rect x="16" y="0" width="4" height="10" rx="2" fill="#fdba74"><animate attributeName="height" values="6;16;6" dur="0.9s" repeatCount="indefinite"/></rect>
+        <text x="30" y="11" font-size="13" fill="#94a3b8">parle en vocal…</text>
+      </g>
+      <rect x="930" y="296" width="276" height="36" rx="10" fill="#1e293b"/>
+      <text x="946" y="319" font-size="13" fill="#64748b">Envoyer un message dans #général</text>
+    </g>
+  </g>
+</svg>

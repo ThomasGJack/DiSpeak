@@ -1,0 +1,77 @@
+-- Migration pour la structure avancée du serveur
+
+-- Table des membres du serveur (synchronisé avec backend)
+CREATE TABLE server_members (
+    id TEXT PRIMARY KEY,
+    server_id TEXT NOT NULL,
+    user_id TEXT NOT NULL,
+    username TEXT NOT NULL,
+    avatar TEXT,
+    role TEXT DEFAULT 'user' NOT NULL CHECK (role IN ('owner', 'moderator', 'user')),
+    joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_seen DATETIME DEFAULT CURRENT_TIMESTAMP,
+    is_online BOOLEAN DEFAULT 0 NOT NULL
+);
+
+-- Table des catégories de canaux
+CREATE TABLE categories (
+    id TEXT PRIMARY KEY,
+    server_id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    position INTEGER NOT NULL DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table des permissions de catégories
+CREATE TABLE category_permissions (
+    id TEXT PRIMARY KEY,
+    category_id TEXT NOT NULL,
+    role TEXT NOT NULL CHECK (role IN ('owner', 'moderator', 'user')),
+    can_view BOOLEAN DEFAULT 1 NOT NULL,
+    can_send_messages BOOLEAN DEFAULT 1 NOT NULL,
+    can_manage_messages BOOLEAN DEFAULT 0 NOT NULL,
+    UNIQUE(category_id, role)
+);
+
+-- Table des permissions de canaux
+CREATE TABLE channel_permissions (
+    id TEXT PRIMARY KEY,
+    channel_id TEXT NOT NULL,
+    role TEXT NOT NULL CHECK (role IN ('owner', 'moderator', 'user')),
+    can_view BOOLEAN DEFAULT 1 NOT NULL,
+    can_send_messages BOOLEAN DEFAULT 1 NOT NULL,
+    can_manage_messages BOOLEAN DEFAULT 0 NOT NULL,
+    can_connect_voice BOOLEAN DEFAULT 1 NOT NULL,
+    can_speak BOOLEAN DEFAULT 1 NOT NULL,
+    UNIQUE(channel_id, role)
+);
+
+-- Modifier la table channels existante
+ALTER TABLE channels ADD COLUMN category_id TEXT;
+ALTER TABLE channels ADD COLUMN position INTEGER DEFAULT 0;
+ALTER TABLE channels ADD COLUMN description TEXT;
+
+-- Table des sessions vocales pour WebRTC
+CREATE TABLE voice_sessions (
+    id TEXT PRIMARY KEY,
+    channel_id TEXT NOT NULL,
+    user_id TEXT NOT NULL,
+    username TEXT NOT NULL,
+    peer_id TEXT NOT NULL,
+    joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (channel_id) REFERENCES channels(id) ON DELETE CASCADE,
+    UNIQUE(channel_id, user_id)
+);
+
+-- Index pour optimiser les requêtes
+CREATE INDEX idx_server_members_server_id ON server_members(server_id);
+CREATE INDEX idx_server_members_user_id ON server_members(user_id);
+CREATE INDEX idx_server_members_is_online ON server_members(is_online);
+CREATE INDEX idx_categories_server_id ON categories(server_id);
+CREATE INDEX idx_categories_position ON categories(position);
+CREATE INDEX idx_category_permissions_category_id ON category_permissions(category_id);
+CREATE INDEX idx_channel_permissions_channel_id ON channel_permissions(channel_id);
+CREATE INDEX idx_channels_category_id ON channels(category_id);
+CREATE INDEX idx_channels_position ON channels(position);
+CREATE INDEX idx_voice_sessions_channel_id ON voice_sessions(channel_id);
+CREATE INDEX idx_voice_sessions_user_id ON voice_sessions(user_id);

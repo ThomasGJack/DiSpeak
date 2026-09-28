@@ -1,0 +1,27 @@
+# DiSpeak Server Binary Configuration (TOML prioritaire)
+
+[server]
+id = "uuid-du-serveur-cree-dans-le-backend"
+database_url = "sqlite:server.db"
+ws_host = "0.0.0.0"
+ws_port = 8001
+internal_api_host = "127.0.0.1"
+internal_api_port = 8002
+instance_name = "Mon serveur DiSpeak"
+internal_api_token = "change-me-internal-api-token"
+
+[backend]
+url = "https://backend.example.com"
+owner_key = "dso_xxxxx_xxxxxxxxx"
+bootstrap_timeout_ms = 5000
+heartbeat_interval_sec = 30
+
+[security]
+enforce_owner_validation = true
+allow_insecure_http_backend = false
+allow_legacy_hs256 = false
+
+[logging]
+level = "info"
+json = false
+

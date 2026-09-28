@@ -1,0 +1,209 @@
+/* Tailwind is loaded via src/styles/globals.css */
+
+:root {
+  --ds-bg-0: #060b12;
+  --ds-bg-1: #0b1220;
+  --ds-bg-2: #101a2d;
+  --ds-surface-0: rgba(14, 24, 41, 0.88);
+  --ds-surface-1: rgba(20, 34, 57, 0.9);
+  --ds-surface-2: rgba(28, 46, 76, 0.92);
+  --ds-border-soft: rgba(95, 233, 255, 0.12);
+  --ds-border-strong: rgba(95, 233, 255, 0.28);
+  --ds-accent-cyan: #5fe9ff;
+  --ds-accent-cyan-2: #18bfe9;
+  --ds-accent-amber: #ffb347;
+  --ds-accent-danger: #ff5f7a;
+  --ds-text-0: #eef5ff;
+  --ds-text-1: rgba(238, 245, 255, 0.84);
+  --ds-text-2: rgba(238, 245, 255, 0.56);
+  --ds-radius-sm: 10px;
+  --ds-radius-md: 14px;
+  --ds-radius-lg: 18px;
+  --ds-shadow-panel: 0 16px 40px rgba(2, 6, 18, 0.45);
+  --ds-shadow-accent: 0 0 0 1px rgba(95, 233, 255, 0.08), 0 10px 32px rgba(24, 191, 233, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--ds-text-0);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(24, 191, 233, 0.2) 0%, rgba(24, 191, 233, 0) 45%),
+    radial-gradient(circle at 88% 16%, rgba(255, 179, 71, 0.14) 0%, rgba(255, 179, 71, 0) 42%),
+    linear-gradient(180deg, var(--ds-bg-1) 0%, var(--ds-bg-0) 100%);
+  font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Rajdhani', 'IBM Plex Sans', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(95, 233, 255, 0.65);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(95, 233, 255, 0.22);
+  color: var(--ds-text-0);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(95, 233, 255, 0.22), rgba(24, 191, 233, 0.28));
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(95, 233, 255, 0.32), rgba(24, 191, 233, 0.42));
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.26s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.26s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 1.8s ease-in-out infinite;
+}
+
+.card {
+  background:
+    linear-gradient(180deg, rgba(17, 29, 49, 0.95) 0%, rgba(12, 20, 35, 0.95) 100%);
+  border: 1px solid var(--ds-border-soft);
+  box-shadow: var(--ds-shadow-panel);
+  border-radius: var(--ds-radius-lg);
+  padding: 1.25rem;
+}
+
+.card:hover {
+  border-color: var(--ds-border-strong);
+}
+
+.ds-panel {
+  background: var(--ds-surface-0);
+  border: 1px solid var(--ds-border-soft);
+  border-radius: var(--ds-radius-md);
+  box-shadow: var(--ds-shadow-panel);
+}
+
+.ds-panel--accent {
+  box-shadow: var(--ds-shadow-accent);
+}
+
+.ds-grid-noise {
+  position: relative;
+}
+
+.ds-grid-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(95, 233, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 233, 255, 0.05) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.ds-accent-text {
+  color: var(--ds-accent-cyan);
+}
+
+.ds-warning-text {
+  color: var(--ds-accent-amber);
+}
+
+.ds-danger-text {
+  color: var(--ds-accent-danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

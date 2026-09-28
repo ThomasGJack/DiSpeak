@@ -1,0 +1,46 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.cursor/
+
+# Environment / local secrets
+.env
+**/.env
+!.env.example
+!**/.env.example
+
+# Logs / temp
+*.log
+*.tmp
+*.temp
+
+# Node / frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+*.tsbuildinfo
+
+# Rust / cargo / tauri
+target/
+**/target/
+
+# Databases / local runtime state
+*.db
+*.sqlite
+*.sqlite3
+!*.sql
+
+# Binaries / debug artifacts (Windows)
+*.exe
+*.pdb
+
+# Local DB backups & stray console output
+*.db.backup*
+backend/serveur
+frontend/Serveur
+server/Serveur
+.claude/
+.claude-flow/
